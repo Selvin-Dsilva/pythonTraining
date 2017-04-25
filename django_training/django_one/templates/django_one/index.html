@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/abc.css' %}">
+</head>
+<body>
+{% for names in usernames %}
+    <form method="post" action="/send_username">
+        <input type="hidden" name="username" value={{names}}>
+        <input type="button" name="username" value={{names}}>
+    </form>
+{% endfor%}
+<div>
+
+    <img src="{% static 'images/qhi.png' %}">
+    {{name}}
+    <br>
+    {{data_blog}}
+    {% for data in data_blog%}
+    <br>
+    {{data.description}}
+    {% endfor%}
+    {% block content%}
+    {%endblock%}
+</div>
+</body>
+</html>

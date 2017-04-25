@@ -1,0 +1,15 @@
+{% extends 'django_one/index.html'%}
+<body>
+
+    {% block content%}
+    <form method="POST" action="">{% csrf_token %}
+        <input type="text" name="title"><br>
+        <input type="text" name="description"><br>
+        <input type="text" name="publish_date"><br>
+        <button type="submit">Submit</button>
+
+    </form>
+    {%endblock%}
+    <h1>Hello</h1>
+</body>
+</html>
