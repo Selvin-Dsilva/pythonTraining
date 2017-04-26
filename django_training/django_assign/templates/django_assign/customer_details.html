@@ -1,0 +1,78 @@
+{% extends 'django_assign/include_css.html'%}
+{% block content%}
+<head>
+    <title>Customer Detail</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="card-panel teal lighten-2 col s8"><h5>Enter Your Details</h5></div>
+    <div class="container" >
+        <form method="POST" class="col s8" action="django_assign/display_customer_details.html">{% csrf_token %}
+            <h5 class="col s12">Name</h5>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="first_name" name="first_name" type="text" class="validate">
+                    <label class="active" for="first_name">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="last_name" name="last_name" type="text" class="validate">
+                    <label class="active" for="last_name">Last Name</label>
+                </div>
+            </div>
+            <br>
+            <h5 class="col s12">Address</h5>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="addrl1" name="addrl1" type="text" class="validate">
+                    <label class="active" for="addrl1">Street Address</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="addrl2" name="addrl2" type="text" class="validate">
+                    <label class="active" for="addrl2">Street Address Line 2</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="city" name="city" type="text" class="validate">
+                    <label class="active" for="city">City</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="state" name="state" type="text" class="validate">
+                    <label class="active" for="state">State/Province</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="zip" name="zip" type="text" class="validate">
+                    <label class="active" for="zip">Postal/Zip Code</label>
+                </div>
+            </div>
+            <h5 class="col s12">Email</h5>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="ex:myname@example.com" id="email" name="email" type="text" class="validate">
+                    <label class="active" for="email">Email</label>
+                </div>
+            </div>
+            <h5 class="col s12">Phone Number</h5>
+            <div class="row">
+                <div class="input-field col s4">
+                    <input id="area" name="area" type="text" class="validate">
+                    <label class="active" for="area">Area Code</label>
+                </div>
+                <div class="col s1">
+                    -
+                </div>
+                <div class="input-field col s7">
+                    <input id="phone" name="phone" type="text" class="validate">
+                    <label class="active" for="phone">Phone Number</label>
+                </div>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            </button>
+        </form>
+    </div>
+</div>
+</body>
+{%endblock%}

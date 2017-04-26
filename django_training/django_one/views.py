@@ -3,6 +3,7 @@ from django.template import RequestContext
 from django.http import HttpResponse
 from django.template import loader
 from .models import Blog
+import datetime
 
 
 # Create your views here.
@@ -23,7 +24,11 @@ def welcome(request):
 def train_view(request):
     if request.method=="POST":
         print("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk")
-        data=request.get("title")
+        data=request.POST
+        print(data)
+        data_update= Blog(title=data['title'],description=data['description'],publish_date=datetime.datetime.now())
+        data_update.save()
+        return render(request, 'django_one/train.html')
     else:
         print("inside else")
         data_blog=Blog.objects.all()

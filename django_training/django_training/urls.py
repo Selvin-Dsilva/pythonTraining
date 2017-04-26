@@ -20,4 +20,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^train_candidate/', include('django_one.urls')),
+    url(r'^assignment/', include('django_assign.urls')),
 ]
