@@ -31,3 +31,6 @@ def cust_display(request):
         'data_cust':data_cust
     }
     return render(request,'django_assign/display_customer_details.html',context)
+
+def index(request):
+    return render(request, 'django_assign/index.html')

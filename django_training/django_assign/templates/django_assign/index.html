@@ -1,0 +1,231 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+
+#div1{
+    background-color:#5900b3;
+    }
+#div2{
+    position: static;
+    }
+
+    div.tab {
+    background-color:#5900b3;
+    width:inherit;
+    color:WHITE;
+     -webkit-justify-content: center;
+    display: flex;
+    justify-content: center;
+    font-size:25px;
+    }
+
+
+div.tab button {
+
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+
+}
+
+
+div.tab button:hover {
+    background-color: #5900b3;
+}
+
+
+div.tab button.active {
+    background-color: #5900b3;
+}
+
+
+.tabcontent {
+    display: none;
+    position:absolute;
+    left:140px;
+    width:650px;
+    padding: 6px 12px;
+    border: none;
+    border-top: none;
+    height:350px;
+    overflow: auto;
+    background-color: inherit;
+}
+
+img {
+    border-radius: 50%;
+    width:200px;
+    height:200px;
+    display: block;
+    margin: auto;
+}
+
+#para{
+    text-align: center;
+    color:WHITE;
+    font-size:15px;
+}
+
+#rcorners1 {
+    font-size:11px;
+    border-radius: 5px;
+    background: YELLOW;
+    padding: 5px;
+    width: 140px;
+    height: 25px;
+    color:BLACK;
+}
+
+
+#main {
+    width: inherit;
+    height: 120px;
+    position: absolute;
+    bottom: 0;
+    display: -webkit-flex; /* Safari */
+    -webkit-justify-content: space-around; /* Safari 6.1+ */
+    display: flex;
+    justify-content: space-around;
+}
+#main div {
+    width: 300px;
+    height: 100%;
+
+}
+
+.fa {
+  padding: 10px;
+  border-radius: 50%;
+  border-style:solid;
+  border-width: 3px;
+  font-size: 70px;
+  width: 40px;
+  height:40px;
+  text-align: center;
+  text-decoration: none;
+  margin: 30px 2px;
+  opacity: 0.5;
+}
+
+.fa-twitter {
+  background: White;
+  color: grey;
+  text-decoration: none;
+}
+
+.fa-smile-o{
+   background: White;
+  color: grey;
+  text-decoration: none;
+}
+hr { display: inline-block; width: 90%; }
+
+h5 {
+    overflow: hidden;
+
+}
+
+h5:after {
+    background-color: grey;
+    content: "";
+    display: inline-block;
+    height: 3px;
+    position: relative;
+    vertical-align: middle;
+    width: 100%;
+    opacity: 0.5;
+}
+
+h5:after {
+    left: 0.5em;
+    margin-right: -1000%;
+}
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="container" id="div1">
+        <img src="{% static 'images/sel.jpg' %}">
+        <p id="para">Selvin Dsilva</p>
+        <div align="center"><p id="rcorners1">Senior Web Developer</p></div>
+    </div>
+</div>
+<div class="container">
+    <div class="tab" id="div2">
+        <button class="tablinks" onclick="openCity(event, 'about')" id="defaultOpen">About Me</button>
+        <button class="tablinks" onclick="openCity(event, 'resume')">Resume</button>
+        <button class="tablinks" onclick="openCity(event, 'contact')">Contact</button>
+        <button class="tablinks" onclick="openCity(event, 'resource')">Resource</button>
+    </div>
+
+    <div id="about" class="tabcontent" >
+        <h5><a href="#" class="fa fa-smile-o"></a><font size="3" color="dark pink">  London</h5></font>
+        <p>London is the capital city of England.</p>
+        <h1>Heading</h1>
+        <h1>This is a longer heading</h1>
+    </div>
+
+    <div id="resume" class="tabcontent">
+        <h5><a href="#" class="fa fa-smile-o"></a><font size="3" color="dark pink">  Paris</h5></font>
+        <p>Paris is the capital of France.</p>
+    </div>
+
+    <div id="contact" class="tabcontent scroll">
+        <h5><a href="#" class="fa fa-smile-o"></a><font size="3" color="dark pink">  Tokyo</h5></font>
+        <p>Tokyo is the capital of Japan.</p>
+    </div>
+    <div id="resource" class="tabcontent scroll">
+        <h5><a href="#" class="fa fa-smile-o"></a><font size="3" color="dark pink">  Tokyo</h5></font>
+        <p>Tokyo is the capital of Japan.</p>
+    </div>
+    <div style="position:absolute; height:200px;width:300px;background-color:inherit;left:800px;"><h5><a href="#" class="fa fa-twitter"></a><font size="3" color="dark pink">  Latest Tweets</font></h5></div>
+    <div id="main">
+        <div style="background-color:#5900b3;"></div>
+        <div style="background-color:#5900b3;"></div>
+        <div style="background-color:#5900b3;"></div>
+    </div>
+</div>
+</body>
+<script>
+    function openCity(evt, cityName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+document.getElementById("defaultOpen").click();
+
+document.getElementById("test").style.position="relative";
+var line=document.createElement("div");
+line.setAttribute("style","width:"+(document.getElementsByTagName("html")[0].offsetWidth-document.getElementById("test").offsetWidth-1)+"px;height:1px;position:absolute;top:6px;left:"+(document.getElementById("test").offsetWidth+1)+"px;background-color:black;");
+document.getElementById("test").appendChild(line);
+
+
+
+
+</script>
+
+
